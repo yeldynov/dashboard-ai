@@ -23,6 +23,7 @@ const config: Config = {
         primaryBlue: '#30a9ee',
         darkBlue: '#151d48',
         blueGrey: '#737791',
+        lightBlueGrey: '#f5f7ff',
         darkGray: '#212b36',
         brandOrange: '#ffa413',
         background: 'hsl(var(--background))',
