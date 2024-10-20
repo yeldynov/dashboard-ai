@@ -68,8 +68,8 @@
 }
 
 .card {
-  @apply flex flex-col items-center justify-between p-6 bg-white rounded-lg shadow-lg;
+  @apply flex flex-col items-center justify-between p-4 lg:p-6 bg-white rounded-lg shadow-lg;
 }
 h2 {
-  @apply text-[#3a596a] text-xl font-medium leading-[140%];
+  @apply text-[#3a596a] text-sm sm:text-base xl:text-xl font-medium leading-[140%];
 }

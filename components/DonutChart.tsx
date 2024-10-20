@@ -10,15 +10,23 @@ const data = [
 
 const COLORS = ['#4c82f8', '#ff8976', '#f9be59']
 
+interface RenderLabelProps {
+  cx: number
+  cy: number
+  midAngle: number
+  innerRadius: number
+  outerRadius: number
+  index: number
+}
+
 const renderLabel = ({
   cx,
   cy,
   midAngle,
   innerRadius,
   outerRadius,
-  percent,
   index,
-}: any) => {
+}: RenderLabelProps) => {
   const RADIAN = Math.PI / 180
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5
   const x = cx + radius * Math.cos(-midAngle * RADIAN)

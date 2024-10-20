@@ -7,7 +7,7 @@ import MobileMenu from './MobileMenu'
 
 const Navbar = async () => {
   return (
-    <div className='flex items-center justify-between w-full px-10 py-4 gap-12'>
+    <div className='flex items-center justify-between max-h-[79px] w-full px-10 pt-4 gap-12'>
       <div className='flex items-center gap-3'>
         <div className='md:hidden flex items-center text-xs'>
           <MobileMenu />

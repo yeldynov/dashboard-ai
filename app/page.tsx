@@ -19,15 +19,20 @@ const dailyBarChartlegendItems = [
 
 export default function Dashboard() {
   return (
-    <div className='w-full min-h-screen p-8 bg-lightBlueGrey'>
+    <div className='w-full min-h-screen p-[14px] lg:p-8 bg-lightBlueGrey'>
       <main className='flex flex-col gap-8'>
         {/* top */}
-        <div className='flex gap-6'>
+        <div className='flex flex-col lg:flex-row gap-6'>
           {/* top left */}
-          <div className='gap-6 card w-3/4'>
-            <div className='flex items-center justify-between w-full'>
-              <h2>Search, Categorize and Group your photos effortlessly!</h2>
-              <Link className='flex gap-4 text-blue-400' href='/gallery'>
+          <div className='gap-1.5 lg:gap-6 card w-full lg:w-3/4'>
+            <div className='flex items-center pb-6 justify-between w-full'>
+              <h2 className='pr-2'>
+                Search, Categorize and Group your photos effortlessly!
+              </h2>
+              <Link
+                className='flex gap-3 text-sm text-nowrap lg:text-base text-blue-400'
+                href='/gallery'
+              >
                 View All
                 <Image
                   src='/icons/arrow-right.svg'
@@ -37,13 +42,37 @@ export default function Dashboard() {
                 />
               </Link>
             </div>
-            <div className='flex justify-between gap-[14px]'>
-              <Image src='/images/image1.png' alt='' width={177} height={248} />
-              <Image src='/images/image2.png' alt='' width={177} height={248} />
-              <Image src='/images/image3.png' alt='' width={177} height={248} />
-              <Image src='/images/image4.png' alt='' width={177} height={248} />
-              <div className='w-[177px] h-[248px] cursor-pointer flex flex-col border-dashed border-primaryBlue border-2 rounded-xl items-center justify-center'>
-                <div className='flex items-center justify-center w-[44px] h-[44px] bg-lightBlueGrey rounded-md'>
+            <div className='flex flex-row-reverse lg:flex-row justify-between gap-1.5 lg:gap-[14px]'>
+              <Image
+                src='/images/image1.png'
+                alt=''
+                width={177}
+                height={248}
+                className='w-[73px] h-[90px] sm:w-[120px] sm:h-[160px] md:w-[150px] md:h-[200px] lg:w-[177px] lg:h-[248px]'
+              />
+              <Image
+                src='/images/image2.png'
+                alt=''
+                width={177}
+                height={248}
+                className='w-[73px] h-[90px] sm:w-[120px] sm:h-[160px] md:w-[150px] md:h-[200px] lg:w-[177px] lg:h-[248px]'
+              />
+              <Image
+                src='/images/image3.png'
+                alt=''
+                width={177}
+                height={248}
+                className='w-[73px] h-[90px] sm:w-[120px] sm:h-[160px] md:w-[150px] md:h-[200px] lg:w-[177px] lg:h-[248px]'
+              />
+              <Image
+                className='hidden xl:flex'
+                src='/images/image4.png'
+                alt=''
+                width={177}
+                height={248}
+              />
+              <div className='w-[73px] h-[90px] sm:w-[120px] sm:h-[160px] md:w-[150px] md:h-[200px] lg:w-[177px] lg:h-[248px] cursor-pointer flex flex-col border-dashed border-primaryBlue border-2 rounded-xl items-center justify-center'>
+                <div className='flex items-center justify-center w-[24px] h-[24px] lg:w-[44px] lg:h-[44px] bg-lightBlueGrey rounded-md'>
                   <Image
                     src='/icons/upload.svg'
                     alt=''
@@ -51,21 +80,21 @@ export default function Dashboard() {
                     height={20}
                   />
                 </div>
-                <p className='text-gray-400 px-5 text-center pt-[13px]'>
+                <p className='text-gray-400 px-5 text-[10px] lg:text-base text-center pt-2 lg:pt-[13px]'>
                   Upload New Photo
                 </p>
               </div>
             </div>
           </div>
           {/* top right */}
-          <div className='card w-1/4'>
+          <div className='card w-full lg:w-1/4'>
             <HowCarousel />
           </div>
         </div>
         {/* bottom */}
-        <div className='flex gap-6'>
+        <div className='flex flex-col lg:flex-row gap-6'>
           {/* bottom 1 */}
-          <div className='gap-2 card h-[400px] w-1/4'>
+          <div className='gap-2 card w-full lg:w-1/4'>
             <div className='flex items-center justify-between w-full'>
               <div className='flex gap-2.5'>
                 <h2>Trial Tier Quota</h2>
@@ -84,8 +113,8 @@ export default function Dashboard() {
             <DonutChart />
           </div>
           {/* bottom 2 */}
-          <div className='card flex flex-1 justify-between h-[400px] px-0 items-center'>
-            <div className='flex items-center justify-between gap-4 '>
+          <div className='card flex w-full lg:flex-1 justify-between px-0 items-center'>
+            <div className='flex flex-col lg:flex-row lg:items-center justify-between gap-4 '>
               <h2>Daily Summary</h2>
               <div className='flex items-center'>
                 {dailyBarChartlegendItems.map((item, index) => (
@@ -94,7 +123,7 @@ export default function Dashboard() {
                       className='inline-block w-3 h-3 mr-2 rounded-full'
                       style={{ backgroundColor: item.color }}
                     ></span>
-                    <span className='text-sm'>{item.name}</span>
+                    <span className='text-[10px] lg:text-sm'>{item.name}</span>
                   </div>
                 ))}
               </div>
@@ -102,10 +131,13 @@ export default function Dashboard() {
             <DailyBarChart />
           </div>
           {/* bottom 3 */}
-          <div className='card w-1/4'>
+          <div className='card w-full lg:w-1/4'>
             <div className='flex items-center justify-between w-full'>
               <h2>Usage Details</h2>
-              <Link className='flex gap-4 text-blue-400' href='/gallery'>
+              <Link
+                className='flex gap-4 text-sm lg:text-base text-blue-400'
+                href='/gallery'
+              >
                 View All
                 <Image
                   src='/icons/arrow-right.svg'
