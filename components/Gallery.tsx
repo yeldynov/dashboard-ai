@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+'use client'
 import Image from 'next/image'
+import { UploadModal } from './UploadModal'
+import { useState } from 'react'
 
 export function Gallery({
   data,
@@ -12,6 +15,8 @@ export function Gallery({
   setSelectedPhotos: React.Dispatch<React.SetStateAction<number[]>>
   onPhotoClick: (photo: PhotoData) => void
 }) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const handleLongPress = (index: number) => {
     setSelectedPhotos((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
@@ -31,16 +36,25 @@ export function Gallery({
     }
   }
 
+  const handleUploadClick = () => {
+    setIsModalOpen(true)
+  }
+
   return (
     <div className='grid grid-cols-3 gap-2 lg:gap-4 md:grid-cols-5'>
-      <div className='h-[152px] lg:h-[348px] cursor-pointer flex flex-col border-dashed border-primaryBlue border-2 rounded-xl items-center justify-center'>
+      <button
+        onClick={handleUploadClick}
+        className='h-[152px] lg:h-[348px] cursor-pointer flex flex-col border-dashed border-primaryBlue border-2 rounded-xl items-center justify-center'
+      >
         <div className='flex items-center justify-center w-[24px] h-[24px] lg:w-[74px] lg:h-[74px] bg-lightBlueGrey rounded-md'>
           <Image src='/icons/upload.svg' alt='' width={40} height={40} />
         </div>
         <p className='text-gray-400 px-5 text-[10px] lg:text-lg text-center pt-2 lg:pt-[13px]'>
           Upload New Photo
         </p>
-      </div>
+      </button>
+      <UploadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
       {data.map((photo: PhotoData, index: number) => (
         <div
           key={index}
