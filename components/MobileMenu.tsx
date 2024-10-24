@@ -13,6 +13,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { usePathname } from 'next/navigation'
+import { Progress } from './ui/progress'
 
 const menuItems = [
   {
@@ -63,7 +64,7 @@ const MobileMenu = () => {
                 </DrawerClose>
               </DrawerTitle>
             </DrawerHeader>
-            <div className='flex gap-[38px] flex-col justify-between w-fit'>
+            <div className='flex gap-[38px] mb-10 flex-col justify-between w-fit'>
               {menuItems.map((item) => {
                 const isActive = pathname === item.href
 
@@ -87,6 +88,15 @@ const MobileMenu = () => {
                   </Link>
                 )
               })}
+            </div>
+            <div className='border-t pt-5'>
+              <div className='flex flex-col justify-between'>
+                <Progress className='w-full' value={33} />
+                <div className='flex w-full text-[10px] items-center justify-between text-gray-400'>
+                  <span>210 Photos</span>
+                  <span>12/1000 MB Upload</span>
+                </div>
+              </div>
             </div>
           </div>
           <DrawerFooter className='text-center text-gray-400'>
