@@ -131,18 +131,6 @@ const FaceTaggingPage = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </span>
-            <span className='flex lg:hidden items-center hover:bg-gray-100 cursor-pointer gap-2 ring-1 lg:py-2 lg:px-4 p-2 bg-white rounded-full lg:rounded-3xl ring-gray-300 outline-none text-gray-500'>
-              <DropdownMenu>
-                <DropdownMenuTrigger className='flex lg:hidden'>
-                  <EllipsisVertical size={18} />{' '}
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>Group-Custom</DropdownMenuItem>
-                  <DropdownMenuItem>Modify-Date</DropdownMenuItem>
-                  <DropdownMenuItem>Modify-Location</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </span>
           </div>
         </div>
         {/* GALLERY */}

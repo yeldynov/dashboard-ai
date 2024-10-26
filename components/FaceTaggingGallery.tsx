@@ -73,17 +73,21 @@ export function FaceTaggingGallery({
               src={photo.imageLink}
               alt='gallery-photo'
             />
-            <div className='absolute top-2 right-2 bg-white rounded-full p-2 shadow-md'>
-              <Search color='gray' />
+            <div className='absolute top-2 right-2 bg-white rounded-full shadow-md p-1 w-6 h-6 lg:p-2 lg:w-8 lg:h-8 flex items-center justify-center'>
+              <Search className='text-gray w-full h-full' />
             </div>
             {/* Footer with name and edit button */}
-            <div className='absolute bottom-0 left-0 right-0 flex justify-between items-center p-6 bg-white rounded-b-lg shadow-sm'>
-              <span className='text-darkGray font-medium'>{photo.name}</span>
+            <div className='absolute bottom-0 left-0 right-0 flex justify-between items-center p-2 lg:p-6 bg-white rounded-b-lg shadow-sm'>
+              <span className='text-darkGray text-[10px] lg:text-xl font-medium'>
+                {photo.name}
+              </span>
               <button
                 onClick={() => onPhotoClick(photo)}
-                className='text-blue-600 font-medium hover:underline'
+                className='text-gray-500 font-medium hover:underline'
               >
-                <Edit color='gray' />
+                <div className=' bg-white rounded-full shadow-md p-1 w-5 h-5 lg:p-2 lg:w-10 lg:h-10 flex items-center justify-center'>
+                  <Edit className='text-gray w-full h-full' />
+                </div>
               </button>
             </div>
           </div>
