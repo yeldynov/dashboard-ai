@@ -10,8 +10,7 @@ export function UploadModal({
   isOpen: boolean
   onClose: () => void
 }) {
-  if (!isOpen) return null
-
+  // Define the hooks at the top level of the component
   const onUpload = () => {
     console.log('Upload files logic...')
   }
@@ -21,6 +20,9 @@ export function UploadModal({
   }, [])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+
+  // Conditional rendering based on `isOpen`, but after hooks
+  if (!isOpen) return null
 
   return (
     <div className='fixed z-20 inset-0 flex px-2 lg:px-0 items-center justify-center bg-black bg-opacity-50'>
