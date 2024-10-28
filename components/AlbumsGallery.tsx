@@ -8,7 +8,6 @@ import { Share2, Trash2 } from 'lucide-react'
 
 export function AlbumsGallery({
   data,
-  onAlbumClick,
 }: {
   data: AlbumData[]
   onAlbumClick: (album: AlbumData) => void
