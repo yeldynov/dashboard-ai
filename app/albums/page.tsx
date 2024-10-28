@@ -6,7 +6,7 @@ import { BrainCircuit, FolderPen } from 'lucide-react'
 import { AlbumData } from '@/types'
 import { AlbumsGallery } from '@/components/AlbumsGallery'
 
-export const data: AlbumData[] = [
+const data: AlbumData[] = [
   {
     id: 1,
     title: 'Hills Images',
