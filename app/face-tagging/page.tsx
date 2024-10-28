@@ -11,12 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import {
-  ArrowDownAZ,
-  CircleCheckBig,
-  EllipsisVertical,
-  Trash2,
-} from 'lucide-react'
+import { ArrowDownAZ, CircleCheckBig, Trash2 } from 'lucide-react'
 import { FaceTaggingGallery } from '@/components/FaceTaggingGallery'
 import FaceTaggingUpdateModal from '@/components/FaceTaggingUpdateModal'
 

@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { UploadModal } from './UploadModal'
 import { useState } from 'react'
+import { PhotoData } from '@/types'
 
 export function Gallery({
   data,

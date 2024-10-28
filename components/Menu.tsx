@@ -21,9 +21,9 @@ const menuItems = [
     href: '/face-tagging',
   },
   {
-    icon: '/icons/profile.svg',
-    label: 'Grouping',
-    href: '/grouping',
+    icon: '/icons/albums.svg',
+    label: 'Albums',
+    href: '/albums',
   },
   {
     icon: '/icons/ranking.svg',
@@ -46,9 +46,7 @@ const Menu = () => {
               href={item.href}
               key={item.label}
               className={`flex items-center justify-center gap-4 py-2 text-blueGrey rounded-2xl lg:justify-start md:px-4 hover:ring-2 hover:ring-primaryBlue hover:text-primaryBlue ${
-                isActive
-                  ? 'text-primaryBlue ring-2 bg-[#f6fbfe] ring-primaryBlue'
-                  : ''
+                isActive ? 'active' : ''
               }`}
             >
               <Image src={item.icon} alt={item.label} width={20} height={20} />

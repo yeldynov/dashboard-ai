@@ -70,6 +70,11 @@
 .card {
   @apply flex flex-col items-center justify-between p-4 lg:p-6 bg-white rounded-lg shadow-lg;
 }
+
+.active {
+  @apply text-primaryBlue ring-2 bg-[#f6fbfe] ring-primaryBlue;
+}
+
 h2 {
   @apply text-[#3a596a] text-sm sm:text-base xl:text-xl font-medium leading-[140%];
 }

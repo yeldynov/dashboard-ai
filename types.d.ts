@@ -14,3 +14,10 @@ type PhotoData = {
   imageLink: string
   details: PhotoDetails
 }
+
+export interface AlbumData {
+  id: number
+  title: string
+  totalImages: number
+  previewImages: string[]
+}
