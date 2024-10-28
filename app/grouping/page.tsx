@@ -76,8 +76,8 @@ export const data: AlbumData[] = [
 ]
 
 const AlbumsPage = () => {
-  function handleClick(album: AlbumData): void {
-    console.log(album)
+  function handleClick(id: number): void {
+    console.log(id)
   }
 
   return (

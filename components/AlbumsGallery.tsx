@@ -10,16 +10,12 @@ export function AlbumsGallery({
   data,
 }: {
   data: AlbumData[]
-  onAlbumClick: (album: AlbumData) => void
+  onAlbumClick: (id: number) => void
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleUploadClick = () => {
     setIsModalOpen(true)
-  }
-
-  function openAlbum(id: number): void {
-    console.log(id)
   }
 
   return (
@@ -42,7 +38,7 @@ export function AlbumsGallery({
       {data.map((album: AlbumData, index: number) => (
         <div
           key={index}
-          onClick={() => openAlbum(album.id)}
+          onClick={() => onAlbumClick(album.id)}
           className='relative h-[152px] lg:h-[300px] w-full rounded-lg cursor-pointer overflow-hidden bg-white shadow-md'
         >
           <div className='grid grid-cols-2 hover:brightness-75 grid-rows-2 h-[80%]'>
