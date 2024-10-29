@@ -4,6 +4,7 @@
 import { useRouter, useParams } from 'next/navigation'
 import { AlbumData } from '@/types'
 import Image from 'next/image'
+import { useState } from 'react'
 
 const data: AlbumData[] = [
   {
@@ -75,10 +76,20 @@ const data: AlbumData[] = [
 ]
 
 const SingleAlbumPage = () => {
+  const [selectedImage, setSelectedImage] = useState(null)
+
   const router = useRouter()
   const { id } = useParams() // get album id from URL
 
-  console.log('Route id:', id)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const openModal = (image: any) => {
+    setSelectedImage(image)
+  }
+
+  const closeModal = () => {
+    setSelectedImage(null)
+  }
+
   const album = data.find((album) => album.id === parseInt(id as string))
 
   if (!album) {
@@ -96,13 +107,34 @@ const SingleAlbumPage = () => {
             alt={`Image ${index + 1} in album ${album.title}`}
             width={400}
             height={300}
-            className='object-cover w-full h-full rounded-lg'
+            onClick={() => openModal(image)}
+            className='object-cover w-full cursor-pointer h-full rounded-lg'
           />
         ))}
       </div>
       <button onClick={() => router.back()} className='mt-4 text-blue-500'>
         Go back
       </button>
+
+      {selectedImage && (
+        <div className='fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50'>
+          <div className='relative p-4 bg-white rounded-lg'>
+            <Image
+              src={selectedImage}
+              alt='Selected Image'
+              width={500}
+              height={300}
+              className='object-cover rounded-lg'
+            />
+            <button
+              onClick={closeModal}
+              className='absolute top-2 right-2 bg-gray-700 text-white rounded-full p-1'
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
