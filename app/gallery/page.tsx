@@ -30,6 +30,7 @@ import {
 } from 'lucide-react'
 import { Gallery } from '@/components/Gallery'
 import PhotoDetailsModal from '@/components/PhotoDetailsModal'
+import { PhotoData } from '@/types'
 
 const data: PhotoData[] = [
   {
