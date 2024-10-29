@@ -1,11 +1,9 @@
+// app/albums/[id]/page.tsx
+
 'use client'
-
-import Image from 'next/image'
-
-import { BrainCircuit, FolderPen } from 'lucide-react'
+import { useRouter, useParams } from 'next/navigation'
 import { AlbumData } from '@/types'
-import { AlbumsGallery } from '@/components/AlbumsGallery'
-import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 const data: AlbumData[] = [
   {
@@ -76,44 +74,37 @@ const data: AlbumData[] = [
   },
 ]
 
-const AlbumsPage = () => {
+const SingleAlbumPage = () => {
   const router = useRouter()
+  const { id } = useParams() // get album id from URL
 
-  function handleClick(id: number): void {
-    router.push(`/albums/${id}`)
+  console.log('Route id:', id)
+  const album = data.find((album) => album.id === parseInt(id as string))
+
+  if (!album) {
+    return <p>Album not found</p>
   }
 
   return (
-    <div className='w-full min-h-screen p-[14px] lg:p-8 bg-lightBlueGrey'>
-      <main className='flex flex-col gap-8'>
-        {/* top */}
-        <div className='flex items-center justify-between'>
-          {/* top left */}
-          <div className='flex gap-5'>
-            <div className='flex items-center gap-3'>
-              <Image src='/icons/scanning.svg' alt='' width={24} height={24} />
-              <h2>Albums</h2>
-            </div>
-          </div>
-          {/* top right */}
-          <div className='flex gap-3'>
-            <span className='flex items-center active hover:bg-gray-100 cursor-pointer gap-2 ring-1 lg:py-2 lg:px-4 p-2 bg-white rounded-full lg:rounded-3xl ring-gray-300 outline-none text-gray-500'>
-              <FolderPen size={18} />{' '}
-              <span className='hidden lg:flex'>Custom</span>
-            </span>
-            <span className='flex items-center hover:bg-gray-100 cursor-pointer gap-2 ring-1 lg:py-2 lg:px-4 p-2 bg-white rounded-full lg:rounded-3xl ring-gray-300 outline-none text-gray-500'>
-              <BrainCircuit size={18} />{' '}
-              <span className='hidden lg:flex'>Ai Generated</span>
-            </span>
-          </div>
-        </div>
-        {/* GALLERY */}
-        <div className='lg:mt-6'>
-          <AlbumsGallery data={data} onAlbumClick={handleClick} />
-        </div>
-      </main>
+    <div className='p-8 bg-lightBlueGrey min-h-screen'>
+      <h2 className='text-2xl font-bold mb-4'>{album.title}</h2>
+      <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5'>
+        {album.previewImages.map((image, index) => (
+          <Image
+            key={index}
+            src={image}
+            alt={`Image ${index + 1} in album ${album.title}`}
+            width={400}
+            height={300}
+            className='object-cover w-full h-full rounded-lg'
+          />
+        ))}
+      </div>
+      <button onClick={() => router.back()} className='mt-4 text-blue-500'>
+        Go back
+      </button>
     </div>
   )
 }
 
-export default AlbumsPage
+export default SingleAlbumPage
