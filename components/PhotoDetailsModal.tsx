@@ -18,6 +18,7 @@ import React from 'react'
 import { Button } from './ui/button'
 
 import ReactStars from 'react-rating-stars-component'
+import { PhotoData } from '@/types'
 
 interface PhotoDetailsModalProps {
   photoDetails: PhotoData
