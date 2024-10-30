@@ -25,11 +25,11 @@ const menuItems = [
     label: 'Albums',
     href: '/albums',
   },
-  {
-    icon: '/icons/ranking.svg',
-    label: 'AI Keywords',
-    href: '/ai-keywords',
-  },
+  // {
+  //   icon: '/icons/ranking.svg',
+  //   label: 'AI Keywords',
+  //   href: '/ai-keywords',
+  // },
 ]
 
 const Menu = () => {
